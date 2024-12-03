@@ -15,12 +15,8 @@ const App = () => {
 
         {/* Main Content */}
         <main className="flex-grow">
-          {/* Add a test div */}
-          <div className="bg-green-500 text-white p-4">
-            This is a test element with Tailwind classes.
-          </div>
           <Routes>
-            <Route path="/profile/:uuid" element={<Profile />} />
+            <Route path="/:uuid" element={<Profile />} />
           </Routes>
         </main>
 
