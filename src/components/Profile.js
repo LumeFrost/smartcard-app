@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchZarbyteProfileData } from '../api/zarbyteApi';
-import Loading from './Loading';
-import Error from './Error';
+import { fetchZarbyteProfileData } from '../api/zarbyteApi.js';
+import Loading from './Loading.js';
+import Error from './Error.js';
 
 const Profile = () => {
   const { uuid } = useParams();
