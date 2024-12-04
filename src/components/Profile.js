@@ -1,7 +1,7 @@
 // src/components/Profile.js
 
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchZarbyteProfileData } from '../api/zarbyteApi.js';
 import Loading from './Loading.js';
 import Error from './Error.js';
@@ -388,9 +388,9 @@ END:VCARD`;
           {/* Branding */}
           {profile.branding && (
             <div className="text-center mb-4">
-              <p className="text-sm" style={{ color: styles.color }}>
+              <Link to="/" className="text-sm" style={{ color: styles.color, textDecoration: 'none' }}>
                 Powered by Zarbyte
-              </p>
+              </Link>
             </div>
           )}
 
