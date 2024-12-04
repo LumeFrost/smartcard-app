@@ -23,7 +23,7 @@ const Header = () => (
           className="h-8 md:h-10 w-auto mr-4 cursor-pointer"
         />
       </Link>
-      <h1 className="text-2xl font-bold ml-2">Developer Preview</h1>
+      <h1 className="text-2xl font-bold ml-2">Development Preview</h1>
     </div>
     {/* Navigation Links */}
     <nav>
