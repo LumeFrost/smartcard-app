@@ -6,8 +6,9 @@ import Profile from './components/Profile.js';
 import Home from './components/Home.js';
 import About from './components/About.js';
 import Contact from './components/Contact.js';
-import Privacy from './components/Privacy.js'; // Ensure these components exist
+import Privacy from './components/Privacy.js';
 import Terms from './components/Terms.js';
+import NotFound from './components/NotFound.js';
 import { FaFacebook, FaTwitter } from 'react-icons/fa';
 
 // Header Component
@@ -89,6 +90,7 @@ const App = () => {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/:uuid" element={<Profile />} />
+          <Route path="*" element={<NotFound />} />
           {/* Add other routes as needed */}
         </Routes>
       </Layout>
