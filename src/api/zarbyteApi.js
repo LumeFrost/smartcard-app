@@ -8,22 +8,22 @@ const ZARBYTE_API_HEADER = {
     'x-zarbyte-smartcardapi': process.env.REACT_APP_ZARBYTE_API_HEADER,
 };
 
-export const fetchZarbyteProfileData = async (uuid, simulateError = false) => {
+/**
+ * Fetches profile data from the Zarbyte API.
+ *
+ * @param {string} uuid - The UUID of the profile to fetch.
+ * @returns {Promise<Object>} - The profile data.
+ * @throws {Error} - Throws an error if the API call fails.
+ */
+export const fetchZarbyteProfileData = async (uuid) => {
     try {
-        // Simulate network delay (2 seconds)
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-
-        if (simulateError) {
-            // Simulate an error
-            throw new Error('Simulated API error');
-        }
-
         const response = await axios.get(`${ZARBYTE_API_URL}${uuid}`, {
             headers: ZARBYTE_API_HEADER,
         });
 
         return response.data;
     } catch (error) {
+        // Optional: You can add custom error handling here if needed
         throw error;
     }
 };
