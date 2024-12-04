@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
-import Profile from './components/Profile.js';
+import ProfileWrapper from './components/ProfileWrapper.js';
 import Home from './components/Home.js';
 import About from './components/About.js';
 import Contact from './components/Contact.js';
@@ -15,12 +15,14 @@ import { FaFacebook, FaTwitter } from 'react-icons/fa';
 const Header = () => (
   <header className="bg-gray-800 text-white p-4 flex justify-between items-center">
     <div className="flex items-center">
-      {/* Logo */}
-      <img
-        src="/Zarbyte_Logo.png"
-        alt="Zarbyte Logo"
-        className="h-8 md:h-10 w-auto mr-4"
-      />
+      {/* Logo wrapped in Link */}
+      <Link to="/">
+        <img
+          src="/Zarbyte_Logo.png"
+          alt="Zarbyte Logo"
+          className="h-8 md:h-10 w-auto mr-4 cursor-pointer"
+        />
+      </Link>
       <h1 className="text-2xl font-bold ml-2">Developer Preview</h1>
     </div>
     {/* Navigation Links */}
@@ -61,8 +63,8 @@ const Footer = () => (
 const Layout = ({ children }) => {
   const location = useLocation();
 
-  // Regex to match UUID v4 format
-  const isProfilePage = /^\/[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(location.pathname);
+  // Regex to match UUID v4 format (case-insensitive)
+  const isProfilePage = /^\/[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(location.pathname);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -89,8 +91,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
-          <Route path="/:uuid" element={<Profile />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/:uuid" element={<ProfileWrapper />} /> {/* Use ProfileWrapper */}
+          <Route path="*" element={<NotFound />} /> {/* 404 Route */}
           {/* Add other routes as needed */}
         </Routes>
       </Layout>
